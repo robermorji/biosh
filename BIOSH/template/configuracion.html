@@ -1,0 +1,30 @@
+
+{% extends "base.html" %}
+<head>
+{% block title %} BIOSH {% endblock %}
+{% block script %} 
+ 	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery_Central.js"></script>
+	
+	<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+{% endblock %}   		
+</head>
+<body>
+	
+  {% block content %}
+  				{% if profile.name_TypeUser == "ADMINISTRADOR" %}
+  					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="newUser" onclick="location='/biosh/configuracion/newUser'">Nuevo Usuario</button></li>
+  					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="deleteUser" onclick="location='/biosh/configuracion/deleteUser'">Borrar Usuario</button></li>
+ 					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="editUser"onclick="location='/biosh/configuracion/editUser'"">Modificar Usuario</button></li>
+					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="seeUser" onclick="location='/biosh/configuracion/consultaUser'">Consultar Usuario</button></li>
+				{% elif profile.name_TypeUser == "ESTANDAR" %}
+					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="seeUser" onclick="location='/biosh/configuracion/consultaUser'">Consultar Usuario</button></li>
+				{% endif %}
+					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="myUser" onclick="location='/biosh/configuracion/myUser'">Mi Usuario</button></li>
+				
+  
+  {% endblock %}   	
+  
+        
+  </body>
+</html>

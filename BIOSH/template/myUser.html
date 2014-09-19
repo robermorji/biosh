@@ -1,0 +1,47 @@
+{% extends "configuracion.html" %}
+<head>
+	{% block title %} BIOSH {% endblock %}
+	{% block script %}
+   	 
+	{% endblock %}	  
+	 
+</head>
+
+	<body>
+			{% block containerCentral %}	
+	
+				<form class="form-horizontal" role="form" method="post" action="">
+					{% csrf_token %}
+					<div class="form-group">
+    				<label class="form-label" for="inputUser">Nombre Usuario:</label>
+   					<input disabled type="text" value="{{ objetoUser.username }}" />
+					</div>
+					<div class="form-group">
+    				<label class="form-label" for="inputUser">Nombre:</label>
+   					<input disabled type="text" value="{{ objetoUser.first_name }}" />
+					</div>
+					<div class="form-group">
+    				<label class="form-label" for="inputUser">Apellidos:</label>
+   					<input disabled type="text" value="{{ objetoUser.last_name }}" />
+					</div>
+					<div class="form-group">
+    				<label class="form-label" for="inputUser">Tipo de Usuario:</label>
+   					<input disabled type="text" value="{{profile.name_TypeUser}}" />
+					</div>
+					
+  					<div class="form-group">
+					<button type="submit" class="btn btn-default">Aceptar</button>
+					<button type="submit" class="btn btn-default">Cancelar</button>
+					</div>
+				</form>
+			 
+			
+			{% endblock %}
+   </body>
+</html>
+			
+
+			
+					
+
+	

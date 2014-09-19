@@ -1,0 +1,49 @@
+{% extends "programa.html" %}
+<head>
+{% block title %} BIOSH {% endblock %}
+{% block script %}
+
+
+{% endblock %}
+
+ 		
+</head>
+<body>
+	{% block containerCentral %} 
+	<form class="form-horizontal" role="form" method='POST' action="argumentOut">
+  				{% csrf_token %}
+  				<div class="form-group" display="none">
+    				<input type="hidden" name="idProgram" id="idProgram" value="{{id_program}}"></input>
+    				<input type="hidden" name="idArgument" id="idArgument" value="{{argumentosOut}}"></input>
+
+    			</div>
+    			{% for index in argumentosOut  %}
+    			<h1>Argumento Salida {{index}} </h1>
+    			<h1>------------------------------</h1>
+  				<div class="form-group">
+    				<label class="form-label" for="name">Nombre Argumento:</label>
+    				<input type="text" name="nameArgument_{{index}}" id="nameArgument_{{index}}" />
+    			</div>
+    			<div class="form-group">
+    				<label class="form-label" for="name">Descripcion Argumento:</label>
+    				<input type="text" name="descriptionArgument_{{index}}" id="descriptionArgument_{{index}}" />
+    			</div>
+    			
+    				<div class="form-group">
+    					<label class="form-label" for="name"> Tipo de Argumento: </label>
+    					<select name="type_{{index}}">
+    					{% for a in type %}
+    						<option value="{{a.type_text}}"> {{a.type_text}} </option>
+    					{% endfor %}
+    					</select>
+    				</div>
+    			{% endfor %}
+    			
+				
+				<div class="form-group">
+       			<button type="submit" class="btn">Siguiente</button>
+				</div>
+        </form>	
+        {% endblock %}
+   </body>
+</html>

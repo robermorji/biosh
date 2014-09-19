@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+<head>
+{% block title %} BIOSH {% endblock %}
+ {% block script %}
+ 	<!-- <script type="text/javascript" src="{{ STATIC_URL }}js/jquery_Central_Program.js"></script>-->
+ {% endblock %}
+		
+</head>
+<body>
+	
+  {% block content %}
+  				<!-- En el onclick deberia de ejecutar el jquery de ejecutar programa -->
+  				{% if profile.name_TypeUser != "VISITADOR" and profile.name_TypeUser != "ESTANDAR" %}
+   					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="execute" onclick="location='/biosh/programa/executeProgram'">Ejecutar Programa</button></li>
+  					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="new" onclick="location='/biosh/programa/newProgram'">Nuevo Programa</button></li>
+					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="delete" onclick="location='/biosh/programa/deleteProgram'">Borrar Programa</button></li>
+					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="categoria" onclick="location='/biosh/programa/categoryProgram'">Añadir Categoria</button></li>
+				{% elif profile.name_TypeUser == "ESTANDAR" %}
+					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="execute" onclick="location='/biosh/programa/executeProgram'">Ejecutar Programa</button></li>
+				{% endif %}
+					<li><button type="submit" class="btn btn-lg btn-primary btn-block" id="see" onclick="location='/biosh/programa/seeProgram'">Ver Programa</button></li>
+	{% endblock %}   	
+  
+        
+  </body>
+</html>

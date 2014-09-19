@@ -1,0 +1,75 @@
+{% extends "programa.html" %}
+<head>
+{% block title %} BIOSH {% endblock %}
+{% block script %}
+<script type="text/javascript">	
+$(document).ready(function() {
+	
+	$("#anadirSubCategory").click(function(event){
+		if ($("#anadirSubCategory:checked").val()==1){
+			$('#input_categoria').attr('disabled','true')
+			$("#fieldset").removeAttr('disabled');		
+		}
+		else{
+			$('#fieldset').attr('disabled','true')
+			$("#input_categoria").removeAttr('disabled');
+		}
+		
+	})
+});
+	
+</script>
+{% endblock %}
+
+</head>
+<body>
+	{% block containerCentral %}
+			 
+				 <form class="form-horizontal" role="form" method="post" action="">
+				 {% csrf_token %}
+  						<div class="form-group">
+    					<label for="label_categoria" class="col-lg-2 control-label">Categoria</label>
+	    					<div class="col-lg-10">
+	      						<input type="text" class="form-control" id="input_categoria" name="category" placeholder="Categoria">
+	    					</div>
+	    				</div>
+	    				<div class="form-group">
+	    				<div class="checkbox">
+		  					<input id="anadirSubCategory" type="checkbox" value="1" />
+		  					<label>Insertar SubCategoria</label> 
+		    			</div>
+	    				</div>
+	    				
+	    				
+						<div class="form-group">
+						<fieldset id="fieldset" disabled >
+							
+	    						<label for="label_categoria_select" class="col-lg-2 control-label">Categoria</label>
+		    					<div   id="input_category"class="col-lg-10">
+		    						<select name="category" class="form-control" id="categoria" >
+		    							{% for a in formulario %}
+		    							<option>{{a}} </option>
+		    							{% endfor %}
+		    						</select> 
+		      						
+		    					</div>
+	  						
+						 	
+	    						<label for="label_categoria" class="col-lg-2 control-label">SubCategoria</label>
+		    					<div class="col-lg-10">
+		      						<input type="text" class="form-control" name="input_subcategory" id="input_subcategoria" placeholder="SubCategoria" >
+		    					</div>
+	  						
+  						</fieldset>
+  						</div>
+  						<div class="form-group" id="botones">
+  						<input type="submit" value="Aceptar" class="btn btn-default" />
+  						<input type="submit" value = "Cancelar" class="btn btn-default" />
+  						</div>
+  					</form>
+  								
+			  
+		{% endblock %}
+
+	</body>
+	</html>

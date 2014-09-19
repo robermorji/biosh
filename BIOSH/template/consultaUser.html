@@ -1,0 +1,61 @@
+{% extends "configuracion.html" %}
+<head>
+	{% block title %} BIOSH {% endblock %}
+	{% block script %}
+   	 
+	{% endblock %}	  
+	 
+</head>
+
+	<body>
+			{% block containerCentral %}	
+	
+						
+			{% if selectedUser %}
+				<form class="form-horizontal" role="form" method="post" action="">
+					{% csrf_token %}
+					<div class="form-group">
+    				<label class="form-label" for="inputUser">Nombre Usuario:</label>
+   					<input disabled type="text" value="{{ object.username }}" />
+					</div>
+					<div class="form-group">
+    				<label class="form-label" for="inputUser">Nombre:</label>
+   					<input disabled type="text" value="{{ object.first_name }}" />
+					</div>
+					<div class="form-group">
+    				<label class="form-label" for="inputUser">Apellidos:</label>
+   					<input disabled type="text" value="{{ object.last_name }}" />
+					</div>
+					<div class="form-group">
+    				<label class="form-label" for="inputUser">Tipo de Usuario:</label>
+   					<input disabled type="text" value="{{profile.name_TypeUser}}" />
+					</div>
+					
+  					<div class="form-group">
+					<button type="submit" class="btn btn-default">Aceptar</button>
+					<button type="submit" class="btn btn-default">Cancelar</button>
+					</div>
+				</form>
+			 {% else %}
+			 	<form class="form-horizontal" role="form" method="post" action="">
+					{% csrf_token %}
+  					<div class="form-group">
+    				<label class="form-label" for="inputUser">Selecciona Usuarios</label>
+   					{{ formulario.usuarios }}
+					</div>
+  					<div class="form-group">
+					<button type="submit" class="btn btn-default">Aceptar</button>
+					<button type="submit" class="btn btn-default">Cancelar</button>
+					</div>
+				</form>
+			 	
+			{% endif %}
+			{% endblock %}
+   </body>
+</html>
+			
+
+			
+					
+
+	

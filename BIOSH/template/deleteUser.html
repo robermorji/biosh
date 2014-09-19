@@ -1,0 +1,34 @@
+{% extends "configuracion.html" %}
+<head>
+	{% block title %} BIOSH {% endblock %}
+	{% block script %}
+   	 
+	{% endblock %}	  
+	 
+</head>
+
+	<body>
+			{% block containerCentral %}	
+			
+						
+			 <form class="form-horizontal" role="form" method="POST" action="" >
+					{% csrf_token %}
+  					<div class="form-group">
+    				<label class="form-label" for="inputUser">Selecciona Usuarios</label>
+   							{{ formulario.usuarios }}
+  					</div>
+  					<div class="form-group">
+					<button type="submit" class="btn btn-default">Aceptar</button>
+					<button type="submit" class="btn btn-default">Cancelar</button>
+					</div>
+ 				  	
+			</form>
+			{% endblock %}
+   </body>
+</html>
+			
+
+			
+					
+
+	

@@ -1,0 +1,52 @@
+body{
+	background:silver;
+	
+}
+
+form.form-signin{
+	margin-top:117px;
+	margin-left: 400px;
+	padding-left:0px;
+	width:330px;
+	
+}
+
+img{
+	float:left;
+	position:absolute;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary{
+	color: #fff;
+	background-color: #6A528D;
+	border-color: #285e8e;
+}
+
+.btn-lg, .btn-group-lg>.btn{
+	border-radius: 50;
+}
+
+p {
+	font-style=MILF___B.TTF;
+	margin-left:350px;
+}
+div.titulo{
+	margin-top:50px;
+	float:center;
+}
+
+table {
+border-spacing: 0;
+border-collapse: collapse;
+}
+
+div#altaUser{
+	float:right
+}
+
+input.btn.btn-default{
+	margin-top:20px;
+	width:450px;
+}
+button.btn.btn-default{
+	width:450px;
+}

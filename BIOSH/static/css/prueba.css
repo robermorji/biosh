@@ -1,0 +1,148 @@
+body{
+	background-color:silver;
+}
+nav.navbar-default{
+	background-color:#428E9D;
+}
+
+div.session{
+	width:auto;
+	heigth:auto;
+	float:left;
+}
+
+.navbar-default .navbar-brand{
+	color:peachpuff;
+}
+
+.navbar-default .navbar-text{
+	color:peachpuff;
+	font-size:30px;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus{
+	color:peachpuff;
+}
+
+.navbar-default .navbar-text:hover, .navbar-default .navbar-text:focus{
+	color:white;
+	text-decoration:none;
+}
+
+.btn-primary{
+	font-size:30px;
+	
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary{
+	background-color:peachpuff;
+	color:blue;
+}
+
+nav.navbarLateral{
+	display:block;
+	background-color:white;
+}
+
+div.cuerpoInformacion{
+	margin-top:50px;
+		
+}
+.btn .btn-lg .btn-primary .btn-block{
+	padding:5px;
+	
+}
+
+ul.nav-pills{
+	width:300px;
+	float:left;
+	margin-top:15px;
+	
+	
+}
+
+div.cuerpoInformacion{
+	heigth:auto;
+	width:auto;
+}
+div.containerLateral{
+	heigth:auto;
+	width:auto;
+}
+div.containerCentral{
+		width:auto;
+		height:auto;
+		margin-left:300px;
+		float:right;
+		float:center;
+		margin-top:80px;
+			
+}
+
+.form-horizontal{
+	margin-top:40px;
+	margin-left:125px;
+	float:center;
+	width:150px;
+	height:150px;
+	
+}
+h1{
+	width:380px;
+}
+input{
+	width:100%
+}
+
+div#descriptionLarge.form-group{
+	margin-bottom:200px;
+}
+div#directorioInput.form-group{
+	margin-bottom:50px;
+}
+
+.form-group{
+	width:700px;
+	height:50px;
+}
+
+div#botones{
+	margin-top:90px;
+}
+button#buttonCancelar.btn.btn-default{
+	font-size:20px;
+}
+
+button#buttonAceptar.btn.btn-default{
+	font-size:20px;
+	
+}
+
+form#formularioSeeProgram.form-horizontal{
+	margin-top: 40px;
+	margin-left: 125px;
+	float: center;
+	width: 100%;
+	
+}
+.form-horizontal .control-label{
+	padding-top: 7px;
+	margin-bottom: 0;
+	text-align: left;
+	width: 180px;
+}
+
+form#formularioNewUser{
+	margin-left:20px;
+}
+
+div#altaUser{
+	float:right;
+	height: 262px;
+    margin-left: 480px;
+
+}
+
+
+
+

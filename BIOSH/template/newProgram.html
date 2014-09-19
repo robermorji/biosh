@@ -1,0 +1,81 @@
+{% extends "programa.html" %}
+<head>
+{% block title %} BIOSH {% endblock %}
+{% block script %}
+
+<script type="text/javascript" src="{{STATIC_URL}}js/jQuery_AjaxCategoriaSubCategoria.js"></script>
+
+{% endblock %}
+
+ 		
+</head>
+<body>
+	{% block containerCentral %} 
+	<form id="formulario" class="form-horizontal" role="form" method='POST' action="">
+  				{% csrf_token %}
+  				<div class="form-group">
+    				<label class="form-label" for="name">Nombre</label>
+    				{{ formulario.name }}
+    			</div>
+    			<div class="form-group">
+    				<label class="form-label" for="category">Categoria</label>
+    				<select name="category" class="form-control" value="" id="categoria" >
+    				{% for a in category_list %}
+		    		<option>{{a}} </option>
+		    		{% endfor %}
+		    		</select> 
+    			</div>
+    			<div class="form-group">
+    				<label class="form-label" for="category">SubCategoria</label>
+    				<select name="subcategory" class="form-control" id="subcategory" disabled >
+    				</select> 
+    			</div>
+  				
+  				<div class="form-group">
+    				<label class="form-label" for="descriptionShort">Descripcion</label>
+   						{{ formulario.descriptionShort }}
+    			</div>
+    			<div class="form-group" id="descriptionLarge">
+    				<label class="form-label" for="descriptionLarge">Descripcion Larga</label>
+   						{{ formulario.descriptionLarge }}
+    			</div>
+				<div class="form-group">
+    				<label class="form-label" for="inputExecution">Tipo de Ejecucion</label>
+   					<select class="form-control" id="inputExecution">
+  								<option>Background</option>
+  								<option>Foreoground</option>
+  						</select>
+				</div>
+    			<div class="form-group">
+    				<label class="form-label" for="inputNombre">Número de Argumentos de Entrada</label>
+    				{{ formulario.numberArgumentIn }}
+    			</div>
+
+				<div class="form-group">
+    				<label class="form-label" for="inputNombre">Número de Argumentos de Salida</label>
+    				{{ formulario.numberArgumentOut }}
+    			</div>
+
+				<div class="form-group" id="directorioInput">
+    				<label class="form-label"  for="inputDirectio">Directorio</label>
+    				{{ formulario.directorio }}
+    				<button type="submit" class="btn"> Directorio  
+  				</div>
+			
+				<div class="form-group">
+    				<label class="form-label" for="inputCodigoExecution">Código de Ejecución</label>
+    				{{ formulario.codigoEjecucion }}
+    			</div>
+
+				<div class="form-group">
+    				<label class="form-label" for="inputRedireccion">Parámetro de Redirección</label>
+    				{{ formulario.parametroRedireccion }}
+    			</div>
+				
+				<div class="form-group" id="botones">
+       			<button id="buttonAceptar" type="submit" class="btn">Siguiente</button>
+				</div>
+        </form>	
+        {% endblock %}
+   </body>
+</html>

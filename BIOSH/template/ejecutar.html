@@ -1,0 +1,132 @@
+{% extends "programa.html" %}
+<head>
+{% block title %} BIOSH {% endblock %}
+{% block script %}
+<script type="text/javascript" src="{{STATIC_URL}}js/jQuery_Ajax.js"></script>
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+		$("select#program").click(function(){
+			var jsonRequest = {
+					'name':$("select#program").val() 
+					}
+			$.ajax({
+				'type':'POST',
+				'url':"/biosh/argumentosProgram",
+				'data':{
+					'json':JSON.stringify(jsonRequest),
+					'csrfmiddlewaretoken': getCookie('csrftoken'),
+				},
+		
+			'dataType':'json',
+			'success': function(data){
+				montarArgumentos(data);
+			},
+	      })
+			
+		})	
+	});	
+	
+	function montarArgumentos(data){
+		debugger;
+		var index;
+		var entrada = document.getElementById("argumentEntrada");
+		while (entrada.firstChild) {
+		    entrada.removeChild(entrada.firstChild);
+		}
+		
+		for (index = 0; index < data['numberArgumentIn'] ; index ++ ){
+			
+			var label = document.createElement ("label") 
+			var indiceOut = index + 1;
+			label.innerHTML= "Argumento " + indiceOut +" de Entrada: ";
+			var input = document.createElement ("input");
+			input.setAttribute("id","argumentIn_"+index);
+			input.setAttribute("type","text");
+			
+			entrada.appendChild(label);
+			entrada.appendChild(input);
+			
+		}
+		
+		for (index = 0; index < data['numberArgumentOut'] ; index ++ ){
+			
+			var label = document.createElement ("label") 
+			var indiceOut = index + 1;
+			label.innerHTML= "Argumento " + indiceOut +" de Salida: ";
+			var input = document.createElement ("input");
+			input.setAttribute("id","argumentOut_"+index);
+			input.setAttribute("type","text");
+			
+			entrada.appendChild(label);
+			entrada.appendChild(input);
+			
+		}
+	}
+	
+	function getCookie(name){
+		var cookieValue=null;
+		if (document.cookie && document.cookie!=''){
+			var cookies = document.cookie.split(';');
+			for (var i=0; i< cookies.length;i++){
+				var cookie = jQuery.trim(cookies[i]);
+				if ( cookie.substring(0,name.length+1)==(name +'=')){
+					cookieValue = decodeURIComponent( cookie.substring(name.length+1));
+					break;
+				}
+			}
+		}
+		return cookieValue;
+	}
+
+</script>
+
+{% endblock %}
+
+ 		
+</head>
+<body>
+	{% block containerCentral %}
+			
+				<form id="formulario" class="form-horizontal" method="post" action="">
+				{% csrf_token %}
+				 
+				 <div class="form-group">
+					 <div class="col-lg-10">
+					 	<label for="label_category_select" class="col-lg-2 control-label">Selecciona Categoria:</label>
+					 	<select name="category" class="form-control" id="categoria" >
+		      					{% for a in category_list %}
+			    				<option>{{a}} </option>
+			    				{% endfor %}
+			    		</select> 
+					 </div>
+				 </div>
+				 
+				 <div class="form-group">
+				 <div class="col-lg-10">
+							<label for="label_category_select" class="col-lg-2 control-label">Selecciona Subcategoria:</label>
+	      					<select name="subcategory" class="form-control" id="subcategoria" value="" disabled >
+	      					</select> 
+	      				</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-lg-10">
+		    			<label for="label_programa_select" class="col-lg-2 control-label">Seleccionar Programa:</label>
+		    			<select name="program" class="form-control" id="program" disabled >
+		      			</select> 
+		      			<div id="argumentEntrada" class="argumentEntrada">
+						</div>
+					 	</div>
+				 </div>
+				 <div class="form-group" id="botones">
+					 	<button id=buttonAceptar  type="submit" class="btn btn-default">Aceptar</button>
+						<button id=buttonCancelar type="submit" class="btn btn-default">Cancelar</button>
+				 </div>
+				</form> 
+				  
+			
+		{% endblock %}
+
+	</body>
+	</html>

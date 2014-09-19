@@ -1,0 +1,52 @@
+{% extends "programa.html" %}
+<head>
+{% block title %} BIOSH {% endblock %}
+{% block script %}
+<script type="text/javascript" src="{{STATIC_URL}}js/jQuery_Ajax.js"></script>
+{% endblock %}		
+</head>
+<body>
+	{% block containerCentral %}
+			
+				  
+			
+				<form id="formulario" class="form-horizontal" method="post" action="">
+				{% csrf_token %}
+				 
+				 <div class="form-group">
+					 <div class="col-lg-10">
+					 	<label for="label_category_select" class="col-lg-2 control-label">Selecciona Categoria:</label>
+					 	<select name="category" class="form-control" id="categoria" >
+		      					{% for a in category_list %}
+			    				<option>{{a}} </option>
+			    				{% endfor %}
+			    		</select> 
+					 </div>
+				 </div>
+				 
+				 <div class="form-group">
+				 <div class="col-lg-10">
+							<label for="label_category_select" class="col-lg-2 control-label">Selecciona Subcategoria:</label>
+	      					<select name="subcategory" class="form-control" id="subcategoria" value="" disabled >
+	      					</select> 
+	      				</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-lg-10">
+		    			<label for="label_programa_select" class="col-lg-2 control-label">Seleccionar Programa:</label>
+		    			<select name="program" class="form-control" id="program" disabled >
+		      			</select> 
+		      			<div id="argumentEntrada" class="argumentEntrada">
+						</div>
+					 	</div>
+				 </div>
+				 <div class="form-group" id="botones">
+					 	<button id=buttonAceptar  type="submit" class="btn btn-default">Aceptar</button>
+						<button id=buttonCancelar type="submit" class="btn btn-default">Cancelar</button>
+				 </div>
+				</form> 
+		{% endblock %}
+
+	</body>
+	</html>

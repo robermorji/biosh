@@ -1,0 +1,45 @@
+{% extends "configuracion.html" %}
+<head>
+	{% block title %} BIOSH {% endblock %}
+	{% block script %}
+   	 
+	{% endblock %}	  
+	 
+</head>
+
+	<body>
+			{% block containerCentral %}	
+	
+						
+			<form class="form-horizontal" role="form">
+					{% csrf_token %}
+  					<div class="form-group">
+    				<label class="form-label" for="inputUser">NameUser:</label>
+    				<input type="text" value="{{ formulario.username }}" />
+    				</div>
+    				<div class="form-group">
+    				<label class="form-label" for="inputUser">Nombre:</label>
+    				<input type="text" value="{{ formulario.first_name }}" />
+    				</div>
+    				<div class="form-group">
+    				<label class="form-label" for="inputUser">Apellidos:</label>
+    				<input type="text" value="{{ formulario.last_name }}" />
+    				</div>
+    				<!--<div class="form-group">
+    				<label class="form-label" for="inputUser">Tipo Usuario:</label>
+    				<input type="text" value="{{ formulario.username }}" />
+    				</div> -->
+  					<div class="form-group">
+					<button type="submit" class="btn btn-default" action="location='/biosh/configuracion'">Atras</button>
+					
+					</div>
+			</form>
+			{% endblock %}
+   </body>
+</html>
+			
+
+			
+					
+
+	

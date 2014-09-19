@@ -1,0 +1,61 @@
+{% extends "configuracion.html" %}
+<head>
+{% block title %} BIOSH {% endblock %}
+{% block script %}
+   	 
+{% endblock %}	  
+	 
+	</head>
+
+	<body>
+			{% block containerCentral %}	
+					
+			<form  id="formularioNewUser" action="" method="POST" rol="form"  >
+  				{% csrf_token %}
+  					
+  					<div class="form-group">
+    					<label class="form-label" for="inputEmail">Email:</label>
+   					 	{{ formulario.email }}
+  					</div>
+ 				   <div class="form-group">
+    					<label class="form-label" for="inputContraseña">Contraseña:</label>
+   						{{ formulario.password1 }}
+  					</div>
+  					
+  					<div class="form-group">
+    					<label class="form-label" for="inputContraseña">Confirmar Contraseña:</label>
+   						{{ formulario.password2 }}
+  					</div>
+  					
+					<div class="form-group">
+    					<label class="form-label" for="inputNombre">Nombre Usuario:</label>
+   					 	{{ formulario.username }}
+  					</div>
+  					
+  					<div class="form-group">
+    					<label class="form-label" for="inputNombre">Nombre:</label>
+   					 	{{ formulario.first_name}}
+  					</div>
+  					
+ 				   <div class="form-group">
+    					<label class="form-label" for="inputApellidos">Apellidos:</label>
+   						{{ formulario.last_name }}
+  					</div>
+					
+ 				   <div class="form-group">
+    				<label class="form-label" for="inputExecution" name="typeUser">Tipo de Ejecucion:</label>
+   							{{ typeUser.profile }}
+					</div>
+					
+ 				  <button type="submit" class="btn btn-default">Guardar</button>
+				  <button type="submit" class="btn btn-default">Cancelar</button> 
+			</form>
+			{% endblock %}
+   </body>
+</html>
+			
+
+			
+					
+
+	

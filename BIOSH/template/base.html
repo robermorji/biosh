@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>{% block title %} {% endblock %} </title>
+ <!-- Bootstrap -->
+<link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+<link href="{{ STATIC_URL }}css/prueba.css" rel="stylesheet">
+<script src="{{STATIC_URL}}js/jquery-1.11.1.min.js" type="text/javascript"></script>   
+
+{% block script %} {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	  <div class="container">
+		 <div class="elementos">
+			 <a class="navbar-brand" href="#">BIOSH</a>
+			 	<div class="sesion" >
+			 	<p class="navbar-brand" >Sesion Iniciada por: {{ user.username }}
+			 	</p>
+			 	<p class ="navbar-brand">Rol: {{ profile.name_TypeUser }}
+			 	</p>
+			 	</div>
+			 	<a class="navbar-text navbar-right" href="/biosh/cerrarSesion"> SALIR </a>
+				<a class="navbar-text navbar-right" href="/biosh/programa"> PROGRAMAS</a>
+				<a class="navbar-text navbar-right" href="/biosh/configuracion"> CONFIGURACIÓN</a>
+				
+			 	
+			
+			 
+		 </div>	 
+	  	</div>	
+	 </nav>	
+
+
+<div class="cuerpoInformacion" >
+ <div class="containerLateral">
+	<nav class="navbarLateral navbar-default navbar-fixed-left" role="navigation">
+		
+			<ul class="nav nav-pills nav-stacked">
+				{% block content %} {% endblock %}
+			</ul>
+		
+	</nav>
+</div>
+</div>
+<div class='containerCentral' id='central' >
+	{% block containerCentral %} {% endblock %}
+	</div>
+
+</body>
+</html>
